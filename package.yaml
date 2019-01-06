@@ -1,6 +1,6 @@
 name:                irenicus
 version:             0.0.0.1
-github:              "githubuser/irenicus"
+github:              "mschonfinkel/irenicus"
 license:             BSD3
 author:              "Author name here"
 maintainer:          "example@example.com"
@@ -39,3 +39,13 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    dependencies:
+    - irenicus
+
+library:
+    source-dirs: src
+    exposed-modules:
+        - Bot
+        - Handlers
+        - Messages
+        - Models

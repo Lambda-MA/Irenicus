@@ -1,6 +1,8 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ nixpkgs ? import <nixpkgs> {}
+, ghc ? nixpkgs.ghc
+}:
 
-with pkgs;
+with nixpkgs;
 
 let
   hie-nix = (import (fetchFromGitHub {
@@ -11,16 +13,18 @@ let
   }) {}).hie86;
 in
 haskell.lib.buildStackProject {
+  inherit ghc;
+
   name = "haskell-env";
 
   buildInputs = [
-    icu
-    ncurses
     zlib
     hie-nix
     hlint
     haskellPackages.hindent
     haskellPackages.ghcid
+    #haskellPackages.ghc-mod
+    #haskellPackages.stylish-haskell
   ];
 
   shellHooks = ''

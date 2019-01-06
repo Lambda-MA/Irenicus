@@ -1,13 +1,8 @@
-resolver: lts-13.1
-
-packages:
-- '.'
-
-extra-deps:
-  - git: https://github.com/fizruk/telegram-bot-simple.git
-    commit: v0.2
-
+flags: {}
 nix:
   enable: true
   shell-file: shell.nix
-
+packages:
+- .
+extra-deps: []
+resolver: lts-13.1
